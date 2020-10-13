@@ -1,0 +1,102 @@
+
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" />
+    <title>YouTube検索</title>  
+</head>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script type="module" src="../js/node_modules/js-cookie/src/js.cookie.js"></script>
+<script src="js/GetVideo.js"></script>
+<link rel="stylesheet" href="css/GetVideo.css">
+<body>
+    <h1>キーワードを入力して検索してください</h1>
+    <div class="Serch_Video">
+    <form method="GET">
+    <h2>動画検索</h2>
+    <input type="search" id="keyword" 
+        placeholder="Please Key Word"
+        name="keyword"
+        {if isset($smarty.session.q_word)}
+        value={$smarty.session.q_word}{/if}
+        required>
+        <input type="submit" value="検索">
+        <br>
+        <select name="sort">
+        {if $smarty.session.sort == "relevance"}  
+        <option value="relevance" selected="selected">関連性</option>
+        {else}
+        <option value="relevance">関連性</option>
+        {/if} 
+        
+        {if $smarty.session.sort == "date"}  
+        <option value="date" selected="selected">日付</option>
+        {else}
+        <option value="date">日付</option>
+        {/if} 
+
+        {if $smarty.session.sort == "rating"} 
+        <option value="rating" selected="selected">評価</option>
+        {else}
+        <option value="rating">評価</option>
+        {/if} 
+
+        {if $smarty.session.sort == "viewCount"} 
+        <option value="viewCount" selected="selected">閲覧</option>
+        {else}
+        <option value="viewCount">閲覧</option>
+        {/if}      
+        </select>
+        <input type="number" name="max_results" value="5" min=1 max=50></label>
+         
+        
+        {if isset($smarty.session.type)&&$smarty.session.type == "live"} 
+        <input type="radio" name="type" value="None" >動画
+        <input type="radio" name="type" value="live" checked="checked">Live
+        {else}
+        <input type="radio" name="type" value="None" checked="checked">動画
+        <input type="radio" name="type" value="live" >Live
+        {/if}
+        
+        
+        <br>
+        {foreach $VIDEOS as $v} 
+            {$v.title}<br>
+            <iframe width="112" height="63" 
+            src="https://www.youtube.com/embed/{$v.id}" 
+            frameborder="1" >
+            </iframe>
+            <input type="checkbox" name="video" 
+            id="{$v.id}" value="{$v.title}"/>
+            <br>
+        {/foreach}
+
+    
+      
+    {if $VIDEOS!=array()}           
+        <input type="submit" name="prev" value="前ページ">
+        <input type="submit" name="next" value="次ページ">
+    {/if}  
+    
+    </form>
+    <br>
+</div>
+<h2>以下指定した動画</h2>
+      <div class="Get_Videos">
+          指定動画:
+          <p></p>
+      </div>
+
+<div class="Make_Room">
+    <form method="POST" action="Room.php">
+    ルーム名:<br>
+    <input type="text" name="room_name" maxlength="30" required>
+    <input type="submit" name="make_room" value="ルーム作成">
+    
+    </form>
+</div>
+    
+<a href= "Home.php" target="_blank">
+          ホームに戻る 
+</a>
+</body>
+</html>
