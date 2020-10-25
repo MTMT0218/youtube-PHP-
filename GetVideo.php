@@ -5,14 +5,15 @@ $smarty=new Smarty;
 $smarty->template_dir = "../smarty/templates/";
 $smarty->compile_dir = "../smarty/templates_c/";
 
+
 $getvdeos="";
 $videos=array();
 
 session_start();
 //検索キーワードが入力された場合にapiからデータをもらう
 if (isset($_GET['keyword'])){
-
-  $DEVELOPER_KEY=getenv("YOUTUBE_API");;
+  
+  $DEVELOPER_KEY=getenv("YOUTUBE_API");
   $client = new Google_Client();
   $client->setDeveloperKey($DEVELOPER_KEY);
   $youtube = new Google_Service_YouTube($client);

@@ -1,12 +1,39 @@
 body{
-    background:linear-gradient(yellowgreen,yellow);
+    width: 100%;
+    height: 100%;
 }
-.Get_Videos{
-   
-    border:solid 3px;
-}
-.Serch_Video{
-   
-    border:solid 3px;
 
+.header{
+    height: 15%;
+    width: 100%;
 }
+.header #Title{
+    width:100%;
+    color: #6594e0;
+    border-bottom: dashed 2px #6594e0;
+}
+
+.header #goto_home{
+    background-color: aqua;
+}
+
+.Serch_Video{
+    float:left;
+    width: 50%;
+    height:100%;
+}
+
+.Get_Videos{
+    float: left;
+    width:40%;
+    height:auto;
+    margin:auto;
+    border: double 0.5em #4ec4d3 ;
+    border-radius: 3%;
+}
+
+ .Make_Room{
+    float:left;
+    width:40%;
+    margin:auto;
+ }

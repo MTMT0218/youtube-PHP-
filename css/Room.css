@@ -1,20 +1,23 @@
 html{
-    background:linear-gradient(yellowgreen,yellow);
     width: 100%;
     height: 100%;
 }
+
 .header{
     height: 15%;
     width: 100%;
 }
-.room_name{
-    text-align: center;
+
+.header #room_name{
+    text-align: center; 
+    border-bottom: dashed 2px #6594e0;
 }
-.home-trans{
-    text-align: right;
-    margin-left: 0%; 
+
+.header #goto_home{
+    text-align:right;
 
 }
+
 .videos{
     display: flex;
     flex-wrap: wrap;
@@ -23,17 +26,19 @@ html{
 }
 
 .sthumbnail{
-width: 33.333333%;
-height: 50%;
+    width: 30%;
+    height: 50%;
+    margin: 1% 1% 1% 1%;
 }
 
-iframe{
-width:100%;
-height: 100%;
+.sthumbnail iframe{
+    
+    width:100%;
+    height: 100%;
 }
 
 .delete_room{
     text-align: right;
-    width:100%;
-height: 5%;
+    width:100%; 
+    height: 5%;
 }

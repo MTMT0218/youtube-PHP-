@@ -83,6 +83,7 @@ jQuery(function($){
         Cookies.set("get_videos",save_values,{samesite:"lax"}); 
         view_cokkie(save_values); 
         check_in_box(save_values);
+        disabled_make_room();
       }
       else{
         this.checked=false;}

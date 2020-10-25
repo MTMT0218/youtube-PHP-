@@ -9,20 +9,11 @@
 
 <body>
 <div class="header">
-    <div class="home-trans">
-        <a href= "Home.php" target="_blank">
-            ホームに戻る 
-        </a>
-    </div>
-    <div class="room_name">
-        <h2>{$ROOM.room_name}</h2>
-    </div>
+    <a id="goto_home" href= "Home.php" target="_blank">ホームに戻る</a>
+    <h2 id="room_name">{$ROOM.room_name}</h2>
 </div>
 <div class="videos">
     {foreach $VIDEOS as $V}
-    <!--<div class="video_name">
-    {$V.video_name}<br>
-    </div>-->
     <div class="sthumbnail">
         <iframe class="youtube" 
         src="https://www.youtube.com/embed/{$V.video_id}?playsinline=1" 

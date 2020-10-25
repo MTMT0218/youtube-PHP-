@@ -1,6 +1,77 @@
 body{
-    background:linear-gradient(yellowgreen,yellow);
+    width: 100%;
+    height: 100%;
 }
-div{
-    border:solid 3px;
+
+.Title{ 
+    color: #6594e0;
+}
+
+.button{
+    display       : inline-block;
+    border-radius : 50%; 
+    font-size     : 1em;
+    text-align    : center;
+    padding       : 12px 12px;
+    background    : #6594e0;
+    color         : #ffffff;
+    opacity       : 1;
+    box-shadow    : 8px 8px 19px #666666;
+}
+
+.button:hover {
+    box-shadow    : none;  
+    opacity       : 0.8;
+}    
+
+      
+.Create_Room{
+    border-bottom: dashed 2px #6594e0;
+}
+
+.Rooms{
+ position: relative;
+    border-radius : 5%; 
+    float: left;
+    width: 20%;
+    height: 30%;
+    margin:1% 1% 1% 1%;    
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    background: #ECECEC;
+    border:solid 0.5em #00bcd4;
+}
+
+.RoomName a{
+    width:100%;
+    height:100%;
+   
+}
+
+.Rooms:hover {
+    transition-property: background;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+    background: #00bcd4;
+    color: white;
+  }
+.Rooms .RoomName{
+    font-size: auto;
+    height: 20%;
+    vertical-align: center;
+}
+.Rooms .Room_imgs{
+    height: 80%;
+    display: block;
+    width: 100%;
+    background-color: gray;
+    overflow-x: scroll;
+    overflow-y:hidden;
+    white-space: nowrap;
+}
+
+.Rooms .Room_img{
+    width:auto;
+    height:100%;    
 }

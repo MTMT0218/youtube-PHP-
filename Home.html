@@ -5,34 +5,29 @@
 <title>YouTube部屋一覧</title>  
 </head>
 <body>
-<h1>ようこそ</h1>
-<h2>下部ルーム作成よりYOUTUBE動画を指定してください</h2>
-    {if isset($ROOMS_DATA)}
-    {foreach  $ROOMS_DATA as $r }
-        <div>
-<ul>
-        
-        <li><a href= "Room.php?room_id={$r.id}" target="_blank">
-            {$r.room_name} 
-        </a>
-        </br>
+<div class="Title">
+    <h1> ～ようこそ ルーム作成よりYOUTUBE動画を指定してください～</h1>
+</div>
+<div class="Create_Room">
+<form method="POST" action="GetVideo.php">
+<input type="submit"  value="ルーム作成" class="button">
+</form>
+</div>
+{if isset($ROOMS_DATA)}
+{foreach  $ROOMS_DATA as $r }
+<div class="Rooms_out">
+    <div class="Rooms">
+    <a href= "Room.php?room_id={$r.id}" target="_blank">
+        <div class="RoomName">{$r.room_name}</div>  </a>
+    <div  class="Room_imgs">      
         {foreach $VIDEOS_DATA[$r@index] as $v}
-            <img
-            src="http://img.youtube.com/vi/{$v.video_id}/default.jpg"
-            alt=""
-            width="112"
-            height="65"/>
-            
+            <img src="http://img.youtube.com/vi/{$v.video_id}/sddefault.jpg" class="Room_img"/>        
         {/foreach}
-        
-        </div>    
-        
+    </div>
+    </div>
+</div>
     {/foreach}
-</ul>
-{/if}
-         
-  <form method="POST" action="GetVideo.php">
-  <input type="submit"  value="ルーム作成">
-  </form>
+    {/if}     
+
 </body>
 </html>

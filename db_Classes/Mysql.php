@@ -1,9 +1,10 @@
 <?php
 
-
 include("Room_Table.php");
 include("Video_Table.php");
 include("Register_Table.php");
+require_once __DIR__ . '/../../vendor/autoload.php';
+
 
 class Mysql{
 	public $host;
@@ -16,11 +17,10 @@ class Mysql{
     public $room_table;
 	
 	public function __construct(){
-	$this->$db_name =getenv("DB_DATABASE");
+		$this->db_name =getenv("DB_DATABASE");
 		$this->host =getenv("DB_HOST");
 		$this->user =getenv("DB_USERNAME");
 		$this->pass =getenv("DB_PASSWORD");
-	
 	}
 
 	public function __destruct()
@@ -29,6 +29,8 @@ class Mysql{
 		}
 
 	public function connect_mysqli(){
+
+
 		$this->mysqli = new mysqli($this->host,$this->user,$this->pass,$this->db_name,"3306");
 		$this->mysqli->set_charset('utf8');
 		if( $this->mysqli->connect_errno ) {

@@ -9,12 +9,16 @@
 <script src="js/GetVideo.js"></script>
 <link rel="stylesheet" href="css/GetVideo.css">
 <body>
-    <h1>キーワードを入力して検索してください</h1>
+    <div class="header">
+    <a id="goto_home" href= "Home.php" target="_blank">
+        ホームに戻る 
+    </a>
+    <h1 id="Title">キーワードを入力して検索してください</h1>
+    </div>
     <div class="Serch_Video">
     <form method="GET">
-    <h2>動画検索</h2>
     <input type="search" id="keyword" 
-        placeholder="Please Key Word"
+        placeholder="キーワードを入力"
         name="keyword"
         {if isset($smarty.session.q_word)}
         value={$smarty.session.q_word}{/if}
@@ -78,25 +82,21 @@
     {/if}  
     
     </form>
-    <br>
+    
 </div>
-<h2>以下指定した動画</h2>
-      <div class="Get_Videos">
-          指定動画:
-          <p></p>
-      </div>
+
+      
 
 <div class="Make_Room">
     <form method="POST" action="Room.php">
-    ルーム名:<br>
-    <input type="text" name="room_name" maxlength="30" required>
+    <input type="text" name="room_name" maxlength="30" placeholder="ルーム名を入力" prequired>
     <input type="submit" name="make_room" value="ルーム作成">
-    
     </form>
 </div>
+
+<div class="Get_Videos">指定動画:<p></p>
+</div>
     
-<a href= "Home.php" target="_blank">
-          ホームに戻る 
-</a>
+
 </body>
 </html>
